@@ -6,12 +6,23 @@ get "/" do
   <<-HTML
   <label>Choose student id:</label>
   <form action="/student">
-    <select name="student_id"
+    <select name="student_id">
       #{students.map {|id, _| "<option value='#{id}'>#{id}</option>" }}
     </select>
     <input type="submit" value="Retrieve Student" />
   </form>
+  <form action="/students" method="post"
+    <label for="name">Name:</label>
+    <input type="text" name="name" />
+    <input type="submit" value="Create Student"/>
   HTML
+end
+
+post "/students" do
+  student_name = params[:name]
+  student_id = students.keys.max + 1
+  students[student_id] = {name: student_name}
+  redirect "/"
 end
 
 get "/student" do
