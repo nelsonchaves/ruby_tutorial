@@ -1,6 +1,6 @@
 require "sinatra"
 
-students = {1 => {name: "Torin"}, 2 => {name: "Levi"}}
+students = { 1 => { name: "Torin" }, 2 => { name: "Levi" } }
 
 get "/" do
   <<-HTML
