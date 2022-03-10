@@ -85,3 +85,24 @@ def functional_lengths(states)
   end
 end
 puts functional_lengths(states)
+
+def multiply_by(values, factor)
+  values.map { |v| v * factor }
+end
+
+def filter_less_than(values, predicate_value)
+  values.select { |v| v < predicate_value }
+end
+
+def sum(values)
+  values.reduce(0) { |acc, v| acc + v }
+end
+
+p result = sum(filter_less_than(multiply_by([1, 2, 3, 4, 5, 6], 2),8))
+
+res = [1, 2, 3, 4, 5, 6]
+  .map { |v| v * 2 }
+  .select { |v| v < 8 }
+  .reduce(0) { |acc, v| acc + v }
+
+p res
